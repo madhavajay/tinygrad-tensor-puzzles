@@ -4,7 +4,7 @@
 
 ## Motivation
 
-When learning a tensor library like tinygrad or Numpy it
+When learning a tensor library like [tinygrad](https://docs.tinygrad.org/) or Numpy it
 is tempting to rely on the standard library (or more honestly
 StackOverflow) to find a magic function for everything. But in
 practice, the tensor APIs are extremely expressive, and you can
