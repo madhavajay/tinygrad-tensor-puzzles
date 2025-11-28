@@ -1,3 +1,40 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tinygrad-tensor-puzzles"
+version = "0.1.0"
+description = "Tensor puzzle exercises implemented with tinygrad"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Tinygrad Tensor Puzzles contributors" }]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+  "tinygrad",
+  "numpy",
+  "hypothesis",
+  "ipykernel",
+  "chalk-diagrams",
+  "colour",
+  "ipython",
+]
+
+[project.optional-dependencies]
+dev = ["ruff"]
+
+[project.urls]
+Homepage = "https://github.com/madhavajay/tinygrad-tensor-puzzles"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+py-modules = ["lib", "solutions"]
+
 [tool.ruff]
 include = ["./src/*"]
 line-length = 88
