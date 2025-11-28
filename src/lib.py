@@ -34,18 +34,19 @@ class TinyType(Tensor):
 
 
 def _color(v, display_values):
-  d = rectangle(1, 1)
+  # Dark mode base square with subtle contrast.
+  d = rectangle(1, 1).fill_color(Color("#111")).line_width(0)
   if display_values:
     return d + text(str(v)[:1] if isinstance(v, bool) else str(v), 0.5).fill_color(
-      Color("black")
+      Color("white")
     ).line_width(0)
   else:
     if v == 0:
       return d
     elif v > 0:
-      return d.fill_color(Color("orange")).fill_opacity(0.4 + 0.6 * (v / 10))
+      return d.fill_color(Color("#ff9f43")).fill_opacity(0.4 + 0.6 * (v / 10))
     elif v < 0:
-      return d.fill_color(Color("blue")).fill_opacity(0.4 + 0.6 * (abs(v) / 10))
+      return d.fill_color(Color("#4ea8de")).fill_opacity(0.4 + 0.6 * (abs(v) / 10))
 
 
 def _draw_matrix(mat, display_values):
@@ -88,7 +89,7 @@ def _draw_example(data, display_values):
     mat = [
       (
         vstrut(0.5)
-        / text(k, 0.5).fill_color(Color("black")).line_width(0.0)
+        / text(k, 0.5).fill_color(Color("white")).line_width(0.0)
         / vstrut(0.5)
       )
     ]
@@ -101,7 +102,7 @@ def _draw_example(data, display_values):
 
   full = (
     vstrut(1)
-    / text(name, 0.75).fill_color(Color("black")).line_width(0)
+    / text(name, 0.75).fill_color(Color("white")).line_width(0)
     / vstrut(1)
     / full.center_xy()
   )
@@ -109,7 +110,7 @@ def _draw_example(data, display_values):
   env = full.get_envelope()
   set_svg_height(50 * env.height)
   set_svg_height(300)
-  return rectangle(env.width, env.height).fill_color(Color("white")) + full
+  return rectangle(env.width, env.height).fill_color(Color("black")) + full
 
 
 def draw_examples(name, examples, display_values=False):
